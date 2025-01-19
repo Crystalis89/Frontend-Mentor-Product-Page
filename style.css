@@ -1,0 +1,704 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+:root {
+
+    /* ### Primary */
+
+    --Orange: rgb(255, 125, 26);
+    --Paleorange: hsl(25, 100%, 94%);
+    
+    /* ### Neutral */
+    
+    --Verydarkblue: hsl(218, 12%, 13%);
+    --Darkgrayishblue: hsl(217, 9%, 45%);
+    --Grayishblue: hsl(220, 14%, 75%);
+    --Lightgrayishblue: hsl(223, 64%, 98%);
+    --White: hsl(0, 0%, 100%);
+
+    /* (with 75% opacity for lightbox background) */
+    --Black: rgba(0, 0, 0, .75);
+
+}
+
+@font-face {
+    font-family: kumbh;
+    src: url(images/KumbhSans-VariableFont_YOPQ\,wght.ttf);
+}
+
+* {
+  border-radius: .75rem;
+  text-decoration: none;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 98vh;
+  margin: 0;
+  font-family: kumbh, sans-serif;
+  
+
+}
+
+button { 
+  border: none;
+  background-color: var(--White);
+}
+
+ul {
+  list-style: none;
+  display: flex;
+}
+
+header {
+  height: 5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+}
+
+.leftheader {
+  display: flex;
+  align-items: center;
+}
+
+.rightheader {
+  display: flex;
+  margin-left:auto;
+}
+
+.headernav {
+display: none;
+}
+
+.headernav button, #sidebarcontainer button {
+width: 100px;
+}
+
+.menuopenbutton {
+  margin-right: 1rem;
+}
+
+.menuopenbutton img {
+  height: 1rem;
+  width: 1rem;
+  border-radius: 0;
+
+}
+
+.avatar img {
+  height: 10vw;
+  width: 10vw;
+  }
+
+  .cart img {
+    height: 1.75rem;
+    width: 1.75rem;
+}
+
+main {
+width: 100%;
+height: 90vh;
+}
+
+/* Sidebar nav menu for mobile. */
+#sidebarcontainer {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(197, 198, 206, .80);
+    margin-top: 0;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    display: none; 
+}
+
+.imageselection div {
+  background-color: rgba(197, 198, 206, .80);
+  width: 10vw;
+  height: 10vh;
+  position: absolute;
+} 
+
+
+
+#sidebarcontainer.expanded {
+    display: flex; 
+    transform: translateX(0);
+    opacity: 1; 
+}
+
+.sidebarnav {
+    background-color: var(--White);
+    width: 70vw;
+    height: 100vh;
+    padding: 1.5rem;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0;
+}
+
+.sidebarnav button {
+    border: none;
+}
+
+.sidebarnav button img {
+  filter: invert();
+}
+
+.sidebarnav ul {
+  display: flex;
+  flex-direction: column;
+  height: 15rem;
+  justify-content: space-around;
+  margin-bottom: auto;
+  font-size: large;
+  font-weight: 700;
+  padding: 0;
+  
+}
+
+/* Product images, on mobile and lightbox  on desktop has thumbnails to navigate on desktop*/
+#productimages button, .lightbox button {
+  width: 2.5rem;
+  height: 2.5rem;
+  position: absolute;
+  border-radius: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  
+}
+
+.previousbutton {
+  left: 0;
+}
+
+.nextbutton {
+  right: 0;
+}
+
+.previousbutton img, .nextbutton img {
+  margin: auto;
+}
+
+.mainimagecontainer {
+  display: flex;
+  align-items: center;
+  cursor: zoom-in;
+}
+
+.mainimage {
+  height: 16rem;
+  width: 100%;
+  border-radius: 0;
+}
+
+/* Dont forget to change mouse pointer to show the image can be zoomed with the lightbox. */
+
+
+/* Pop out image Lightbox */
+.lightbox {
+  display: none;
+  position: absolute;
+  margin: auto;
+  background-color: rgba(29, 32, 37, .80);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  border-radius: 0;
+  cursor: zoom-out;
+
+}
+
+#lightboximagecontainer {
+  display: flex;
+  flex-direction: column;
+}
+
+#lightboximagecontainer section {
+  margin: 6vh auto;
+  width: fit-content;
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+#lightboximagecontainer button.previousbutton {
+  position: relative;
+  margin: auto;
+  left: 20px;
+}
+
+#lightboximagecontainer button.nextbutton {
+  position: relative;
+  margin: auto;
+  right: 20px;
+}
+
+#lightboximagecontainer button img {
+  display: block;
+}
+
+.lightboximage {
+  width: 35rem;
+  cursor:default;
+
+}
+
+button.lightboxclose {
+  background-color: rgba(0, 0, 0, 0);
+  position: fixed;
+  top: 0;
+}
+
+.lightboxclose img {
+  width: 1.25rem;
+  filter: none;
+}
+
+.lightboxclose img:hover {
+  filter: brightness(0) saturate(100%) invert(71%) sepia(60%) saturate(4895%) hue-rotate(346deg) brightness(99%) contrast(104%);
+}
+
+.imageselection {
+  display: none;
+  cursor:default;
+
+}
+
+.imageselection li:has(.opaque) {
+  border: var(--Orange) solid;
+
+}
+
+.opaque, .thumbnails:hover {
+  opacity: 0.5;
+}
+
+#lightboximagecontainer .imageselection {
+  width: fit-content;
+  margin: auto;
+  gap: 2rem;
+}
+
+#lightboximagecontainer .imageselection li {
+  width: 9vw;
+}
+
+
+
+/* Info about the product */
+.productdescription {
+  padding: 1rem;
+}
+
+.brand {
+  padding: 0 1rem 0 1rem;
+  color: var(--Darkgrayishblue);
+  font-weight: 700;
+  font-size: .8rem;
+  margin-top: 0;
+}
+
+.productname {
+  font-size: xx-large;
+  padding: 0 1rem 0 1rem;
+  margin-top: 0.51rem;
+}
+
+.description {
+  padding: 0 1rem 0 1rem;
+  color: var(--Darkgrayishblue);
+
+}
+
+/* Section containing pricing info */
+.price {
+  display: flex;
+  padding: 0px 2rem 0 2rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price div {
+    display: flex;
+    align-items: center;
+}
+
+.finalprice {
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin-top: 0;
+  margin-right: 1rem;
+}
+
+.discount {
+  background-color: black;
+  color: var(--White);
+  border-radius: 5px;
+  margin-top: 0;
+  font-size: .95rem;
+  padding: 2px 9px 2px 9px;
+  font-weight: 700;
+}
+
+.fullprice {
+  color: var(--Darkgrayishblue);
+  text-decoration: line-through;
+  margin-top: 0;
+  font-weight: 700;
+}
+
+
+/* Set amount and add to cart */
+.addtocart {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#subtractbutton {
+width: 2rem;
+}
+
+#increasebutton {
+width: 2rem;
+}
+
+#quantity {
+  margin-top: 0;
+  border: none;
+  text-align: center;
+  font-weight: 700;
+  width: 2rem;
+  height: 2rem;
+}
+
+.quantityselect {
+  display: flex;
+  width: 100%;
+  padding: 1rem 1.8rem;
+  justify-content: space-between;
+}
+
+
+
+#addtocartbutton {
+  background-color: var(--Orange);
+  width: 90%;
+  height: 3rem;
+  border-radius: .75rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#addtocartbutton img {
+  color: black;
+  margin-right: 1rem;
+
+}
+
+.cart {
+  display: flex;
+  align-items: center;
+}
+
+#cartsize {
+  display: none;
+  position: relative;
+  height: 1.25rem;
+  background-color: var(--Orange);
+  color: white;
+  width: 1.25rem;
+  bottom: 15px;
+  left: 36px;
+  font-size: 10px;
+}
+
+#cartsize p {
+  margin-top: 3px;
+}
+
+#cartcontents {
+  display: none;
+  position: absolute;
+  width: 90%;
+  top: 6rem;
+  right: 1rem;
+  box-shadow: 0px 3px 10px 0px var(--Darkgrayishblue);
+  background-color: var(--White);
+  padding: 5px;
+}
+#cartitemcontainer {
+  height: 50%;
+  padding-top: 1rem;
+  margin: 0 1rem 0px 1rem;
+}
+
+.cartitem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    height: 5rem;
+}
+
+.cartitem p {
+  text-align: center;
+  font-weight: 700;
+}
+
+#carttitle {
+  border-bottom: solid var(--Lightgrayishblue);
+  display: flex;  
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+}
+
+
+.cartitem img {
+  width: 3rem;
+  border-radius: 4px;
+}
+
+.cartiteminfo {
+  margin-left: 15px;
+}
+
+.cartiteminfo p {
+  margin-top: 0;
+}
+
+.cartpricetotal {
+  font-weight: 700;
+  margin-left: 10px;
+}
+
+img.deletebutton {
+  width: 1rem;
+}
+
+#checkoutbutton {
+  display: none;
+  background-color: var(--Orange);
+  width: 17rem;
+  height: 3rem;
+  margin: 1rem auto;
+  margin-top: 1rem;
+  font-weight: 700;
+}
+
+.cartclose {
+  margin-left: auto;
+}
+
+img.cartclose {
+  filter: invert();
+
+}
+
+
+.headernav li:hover {
+  border-bottom: solid var(--Orange);
+  border-radius: 0;
+}
+
+.avatar img:hover {
+  border: solid var(--Orange);
+  border-radius: 25px;
+}
+
+.subtract:hover, .add:hover, #addtocartbutton:hover, #checkoutbutton:hover {
+  filter: opacity(.75);
+}
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+@media only screen and (min-width: 450px) {
+
+
+  .avatar img {
+    height: 3vw;
+    width: 3vw;
+  }
+
+  .menuopenbutton {
+    display: none;
+  }
+
+  .leftheader {
+
+    margin-left: 10%;
+  }
+  
+  .rightheader {
+
+    margin-right: 10%;
+  }
+
+  .headernav {
+  display: flex;
+}
+
+.headernav ul {
+  gap: 2rem;
+}
+
+
+
+#cartcontents {
+  width: 22rem;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  width: 80vw;
+  height: 85vh;
+  justify-content: center;
+  margin: auto;
+  outline: solid var(--Lightgrayishblue);
+  padding: 0 2rem;
+}
+
+#productimages {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mainimagecontainer {
+  margin-bottom: 2rem;
+  height: 60%;
+}
+
+.mainimage {
+  border-radius: 12px;
+  height: 100%
+}
+
+.content {
+  width: 50%;
+  height: fit-content;
+  margin-left: 4vw;
+  margin-bottom: 3rem;
+}
+
+.productname {
+  margin-top: 1rem;
+  font-size: 2.5rem;
+}
+
+.description {
+  margin-top: 2.5rem;
+}
+
+
+.price {
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.discount {
+  margin: auto;
+}
+
+.addtocart {
+  flex-direction: row;
+}
+
+.imageselection {
+  padding-left: 0;
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.nextbutton, .previousbutton {
+  display: none;
+}
+}

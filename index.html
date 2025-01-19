@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  
+  <title>Frontend Mentor | E-commerce product page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+ </head>
+<body>
+
+  <header>
+    <section class="leftheader">
+    <button id="menuopenbutton" class="menuopenbutton"><img src="images/icon-menu.svg" alt="Navigation Menu Open Button"></button>
+    <a href="#"><img src="images/logo.svg" alt=""></a>
+
+    <nav class="headernav"> 
+      <ul>
+        <li>      
+          <a href="#">Collections</a>
+        </li>
+        <li>      
+          <a href="#">Men</a>
+        </li>
+        <li>      
+          <a href="#">Women</a>
+        </li>
+        <li>      
+          <a href="#">About</a>
+        </li>
+        <li>     
+           <a href="#">Contact</a>
+        </li>
+
+      </ul>
+    </nav>
+    </section>
+
+    <section class="rightheader">
+      <button class="cart">
+        <div id="cartsize">
+          <p></p>
+        </div>
+        <img src="images/icon-cart.svg" alt="Cart" class="cart">
+      </button>
+
+      <button class="avatar">
+        <img src="images/image-avatar.png" alt="User Avatar">
+      </button>
+    </section>
+
+  </header>
+
+      <!-- Hidden til click button -->
+  <h1 id="sidebarcontainer" class="sidebarcontainer">
+    <nav class="sidebarnav" >   
+      <button id="sidebarclosebutton">
+        <img src="images/icon-close.svg"  alt="Close Nav Menu Button ">
+      </button>
+      <ul>
+        <li><a href="#">Collections</a></li>
+        <li><a href="#">Men</a></li>
+        <li><a href="#">Women</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </h1>
+
+  <main>
+    <section id="cartcontents">
+      <h3 id="carttitle">
+        Cart
+        <button class="cartclose">        
+          <img src="images/icon-close.svg" alt="Cart close" class="cartclose">
+        </button>
+      </h3>
+      <section id="cartitemcontainer"> 
+        <section class="cartitem">
+          <p>Your cart is empty.</p>
+        </section>
+    </section>
+     <button id="checkoutbutton" onclick="alert('Order Complete!')">Checkout</button>
+    </section>
+
+  
+    <!-- Dont forget to add the alt texts to the images. -->
+    <section class="lightbox">
+      <section id="lightboximagecontainer">
+
+       <section>
+        <button class="lightboxclose"><img src="images/icon-close.svg" alt="Close lightbox button"></button>
+
+        <button class="previousbutton">
+          <img src="images/icon-previous.svg" alt="Previous Image Button" loading="lazy" class="previousbutton">
+        </button>      
+        <img src="images/image-product-1.jpg" alt="" class="lightboximage" loading="lazy">
+        <button class="nextbutton">
+          <img src="images/icon-next.svg" alt="Next Image Button" loading="lazy" class="nextbutton">
+        </button>
+          </section>
+          <ul class="imageselection">
+            <li><img src="images/image-product-1-thumbnail.jpg" alt="Image of two tan shoes shown from side and bottom" class="thumbnails" loading="lazy"></li>
+            <li><img src="images/image-product-2-thumbnail.jpg" alt="Two tan shoes posed on stones" class="thumbnails" loading="lazy"></li>
+            <li><img src="images/image-product-3-thumbnail.jpg" alt="Image of single tan shoe balanced on top of two stacked rocks" class="thumbnails" loading="lazy"></li>
+            <li><img src="images/image-product-4-thumbnail.jpg" alt="Image of single tan shoe balanced with only heel on top of two stacked rocks" class="thumbnails" loading="lazy"></li>
+          </ul>
+    </section>
+
+    </section>
+
+    <section id="productimages">
+      <section class="mainimagecontainer">
+        <button class="previousbutton">
+          <img src="images/icon-previous.svg" alt="Previous Image Button" class="previousbutton">
+        </button>
+        <img src="images/image-product-1.jpg" alt="Image of single tan shoe balanced with only heel on top of two stacked rocks" class="mainimage">
+        <button class="nextbutton">
+          <img src="images/icon-next.svg" alt="Next Image Button" class="nextbutton">
+        </button>
+    </section>
+
+     
+
+        <ul class="imageselection">
+          <li><img src="images/image-product-1-thumbnail.jpg" alt="Image of two tan shoes shown from side and bottom" class="thumbnails" loading="lazy"></li>
+          <li><img src="images/image-product-2-thumbnail.jpg" alt="Two tan shoes posed on stones" class="thumbnails" class="thumbnails" loading="lazy"></li>
+          <li><img src="images/image-product-3-thumbnail.jpg" alt="Image of single tan shoe balanced on top of two stacked rocks" class="thumbnails" loading="lazy"></li>
+          <li><img src="images/image-product-4-thumbnail.jpg" alt="Image of single tan shoe balanced with only heel on top of two stacked rocks" class="thumbnails" loading="lazy"></li>
+        </ul>
+    </section>
+
+    <section class="content">
+    <section class="productdescription">
+      <p class="brand">SNEAKER COMPANY</p>
+    
+      <h1 class="productname">Fall Limited Edition Sneakers</h1>
+    
+      <p class="description">These low-profile sneakers are your perfect casual wear companion. Featuring a 
+      durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+    </section>
+    
+      <section class="price">
+        <div>
+          <p class="finalprice">$125.00</p>    
+          <p class="discount">50%</p>    
+        </div>
+        <p class="fullprice">$250.00</p>
+      </section>
+    
+    <section class="addtocart">
+      <section class="quantityselect">
+        <button id="subtractbutton" class="subtract">
+          <img src="images/icon-minus.svg" alt="Decrease Order Quantity" id="subtract" class="subtract">
+        </button> 
+        <input name="Quantity" type="number" placeholder="0" id="quantity" value="0">
+        <button id="increasebutton" class="add">
+          <img src="images/icon-plus.svg" alt="Increase Order Quantity" id="increase" class="add">
+        </button>
+      </section>
+    
+      <button id="addtocartbutton">
+        <img src="images/icon-cart.svg" alt="Cart" id="addcartbuttonimage">
+        Add to cart</button>
+    </section>
+  </section>
+  </main>
+  
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Matt</a>.
+  </footer>
+</body>
+</html>
