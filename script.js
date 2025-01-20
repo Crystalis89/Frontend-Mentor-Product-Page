@@ -65,11 +65,13 @@ mainimageselection.addEventListener('click', function(event){
     }
     event.target.classList.add('opaque')
 
-    mainimage.src = `images/image-product-${event.target.src[82]}.jpg`
-
-    
+    const srcParts = event.target.src.split('/');
+    const filename = srcParts[srcParts.length - 1]; 
+    const productNumber = filename.match(/\d+/)[0]; 
+    mainimage.src = `images/image-product-${productNumber}.jpg`;    
  }   
 })
+
 lighboximageselection.addEventListener('click', function(event){
  if (event.target.tagName === 'IMG') {
     const opaque = document.querySelector('.opaque')
@@ -79,8 +81,10 @@ lighboximageselection.addEventListener('click', function(event){
     }
     event.target.classList.add('opaque')
 
-
-    lightboximage.src = `images/image-product-${event.target.src[82]}.jpg`
+    const srcParts = event.target.src.split('/');
+    const filename = srcParts[srcParts.length - 1]; 
+    const productNumber = filename.match(/\d+/)[0]; 
+    lightboximage.src = `images/image-product-${productNumber}.jpg`;
  }   
 })
 
@@ -91,7 +95,7 @@ quantityselect.addEventListener('click', function(event){
         if (event.target.classList.contains('subtract')) {
             quantity.value--
         }
-   })
+})
    
 addtocart.addEventListener('click', function(event){
 
@@ -124,7 +128,11 @@ lightbox.addEventListener('click', function(event) {
 })
 
 mainimagecontainer.addEventListener('click', function(event) {
-    let currentImageNum = parseInt(mainimage.src[82])
+    const srcParts = mainimage.src.split('/');
+    const filename = srcParts[srcParts.length - 1]; 
+    const productNumber = filename.match(/\d+/)[0]; 
+
+    let currentImageNum = parseInt(productNumber)
     if (event.target.classList.contains('nextbutton')) {
         currentImageNum++
         if (currentImageNum >= 5) {
@@ -174,7 +182,12 @@ mainimagecontainer.addEventListener('click', function(event) {
 })
 
 lightboximagecontainer.addEventListener('click', function(event) {
-    let currentImageNum = parseInt(lightboximage.src[82])
+    const srcParts = lightboximage.src.split('/');
+    const filename = srcParts[srcParts.length - 1]; 
+    const productNumber = filename.match(/\d+/)[0]; 
+
+    let currentImageNum = parseInt(productNumber)
+
     if (event.target.classList.contains('nextbutton')) {
         currentImageNum++
         if (currentImageNum >= 5) {
